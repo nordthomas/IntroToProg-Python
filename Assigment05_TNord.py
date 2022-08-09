@@ -7,6 +7,7 @@
 # ChangeLog (Who,When,What):
 #           RRoot,1.1.2030, Created starter script
 #           TNord,08.07.2022, Added code to complete assignment 05
+#           TNord,08.08.2022, Minor code clean-up
 # ------------------------------------------------------------------------ #
 
 # -- Data -- #
@@ -53,6 +54,7 @@ while (True):
 
     # Step 3 - Show the current items in the table
     if (strChoice.strip() == '1'):
+        # TODO: It would be nice to print a header here
         for row in lstTable:
             print(row)
         continue
@@ -63,11 +65,13 @@ while (True):
         strPriority = input("Set a Priority: ")
         lstRow = [strTask, strPriority]
         lstTable.append(lstRow[0] + " | " + lstRow[1])
+        print("\nTask added to list.")
         continue
 
     # Step 5 - Remove a new item from the list/Table
     elif (strChoice.strip() == '3'):
         i = 0 # Set a variable so we can label our row numbers
+        # TODO: Print our header again
         for row in lstTable: # Display the current list of tasks
             i += 1 # Increment our row number
             print("(" + str(i) + ")" + " " + row) # Print our table with row numbers for easier usability
@@ -88,6 +92,7 @@ while (True):
         for row in lstTable:
             objFile.write(row + "\n")
         objFile.close()
+        print(f"Tasks saved to {strFile}.")
         continue
 
     # Step 7 - Exit program
