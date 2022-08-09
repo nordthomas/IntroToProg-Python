@@ -92,6 +92,7 @@ while (True):
 
     # Step 7 - Exit program
     elif (strChoice.strip() == '5'):
+        print(Goodbye.)
         break  # and Exit the program
 
     # Step 8 - Any other input, return to the menu
