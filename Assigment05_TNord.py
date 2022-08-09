@@ -31,7 +31,7 @@ if objFile == None:
 
 objFile = open(strFile, "r")
 for row in objFile:
-    lstRow = row.split("|")  # Returns a list!
+    lstRow = row.split(" | ")  # Returns a list!
     dicRow = {"Task": lstRow[0], "Priority": lstRow[1].strip()}
     lstTable.append(dicRow["Task"] + " | " + dicRow["Priority"].strip())
 objFile.close()
@@ -92,7 +92,7 @@ while (True):
 
     # Step 7 - Exit program
     elif (strChoice.strip() == '5'):
-        print(Goodbye.)
+        print("Goodbye.")
         break  # and Exit the program
 
     # Step 8 - Any other input, return to the menu
