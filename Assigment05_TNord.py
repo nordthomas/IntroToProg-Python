@@ -44,9 +44,9 @@ objFile.close()
 while (True):
     print("""
     Menu of Options
-    1) Show current data
-    2) Add a new item.
-    3) Remove an existing item.
+    1) Show Current Data
+    2) Add a New Item
+    3) Remove an Existing Item
     4) Save Data to File
     5) Exit Program
     """)
@@ -63,7 +63,7 @@ while (True):
                 print(row)
         continue
 
-    # Step 4 - Add a new item to the list/Table
+    # Step 4 - Add a new item to the list/table
     elif (strChoice.strip() == '2'):
         strTask = input("Enter a Task: ")
         strPriority = input("Set a Priority: ")
@@ -72,7 +72,7 @@ while (True):
         print("\nTask added to list.")
         continue
 
-    # Step 5 - Remove a new item from the list/Table
+    # Step 5 - Remove a new item from the list/table
     elif (strChoice.strip() == '3'):
         i = 0 # Set a variable so we can label our row numbers
         print("Task | Priority")
@@ -89,14 +89,14 @@ while (True):
                 print("Task | Priority")
                 for row in lstTable: # Display the new list of tasks
                     print(row)
-                continue
+            continue
         else:
             print("Please enter a valid number.")
             continue
 
     # Step 6 - Save tasks to the ToDoList.txt file
     elif (strChoice.strip() == '4'):
-        objFile = open("ToDoList.txt", "w")
+        objFile = open(strFile, "w")
         for row in lstTable:
             objFile.write(row + "\n")
         objFile.close()
