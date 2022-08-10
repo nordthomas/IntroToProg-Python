@@ -8,6 +8,7 @@
 #           RRoot,1.1.2030, Created starter script
 #           TNord,08.07.2022, Added code to complete assignment 05
 #           TNord,08.08.2022, Minor code clean-up
+#           TNord,08.09.2022, Added a little more user feedback to some operations
 # ------------------------------------------------------------------------ #
 
 # -- Data -- #
@@ -54,9 +55,12 @@ while (True):
 
     # Step 3 - Show the current items in the table
     if (strChoice.strip() == '1'):
-        # TODO: It would be nice to print a header here
-        for row in lstTable:
-            print(row)
+        if len(lstTable) == 0:
+            print("There are no tasks in the list.")
+        else:
+            print("Task | Priority")
+            for row in lstTable:
+                print(row)
         continue
 
     # Step 4 - Add a new item to the list/Table
@@ -71,17 +75,21 @@ while (True):
     # Step 5 - Remove a new item from the list/Table
     elif (strChoice.strip() == '3'):
         i = 0 # Set a variable so we can label our row numbers
-        # TODO: Print our header again
+        print("Task | Priority")
         for row in lstTable: # Display the current list of tasks
             i += 1 # Increment our row number
             print("(" + str(i) + ")" + " " + row) # Print our table with row numbers for easier usability
         intDelete = int(input("\nWhat row number would you like to delete? "))  # User indicates which row should be deleted
         if intDelete >= 1 and intDelete <= len(lstTable):
             del lstTable[intDelete-1] # Delete the indicated row
-            print(f"\nRow {intDelete} has been deleted.\n") # Tell the user the row they selected has been deleted
-            for row in lstTable: # Display the new list of tasks
-                print(row)
-            continue
+            if len(lstTable) == 0:
+                print("\nThere are no tasks in the list.")
+            else:
+                print(f"\nRow {intDelete} has been deleted.\n") # Tell the user the row they selected has been deleted
+                print("Task | Priority")
+                for row in lstTable: # Display the new list of tasks
+                    print(row)
+                continue
         else:
             print("Please enter a valid number.")
             continue
